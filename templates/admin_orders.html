@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h2 style="text-align:center;">📦 Orders Received</h2>
+
+<table border="1" cellpadding="10" cellspacing="0" style="margin:auto; width:90%; background:white;">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Items</th>
+        <th>Total (₹)</th>
+        <th>Payment</th>
+        <th>Date & Time</th>
+    </tr>
+
+    {% for order in orders %}
+    <tr>
+        <td>{{ order["user_name"] }}</td>
+        <td>{{ order["user_email"] }}</td>
+        <td>{{ order["items"] }}</td>
+        <td>{{ order["total"] }}</td>
+        <td>{{ order["payment_method"] }}</td>
+        <td>{{ order["order_time"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

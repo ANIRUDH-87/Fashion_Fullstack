@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="cart-box" id = "cart">
+    <h1>🛒 Your Cart</h1>
+
+    {% for product, qty in cart_items.items() %}
+    <div class="cart-item">
+        <img src="{{ url_for('static', filename='images/' + product + '.jpg') }}">
+
+        <div>
+            <h3>{{ names[product] }}</h3>
+            <p>Price: ₹{{ prices[product] }}</p>
+
+            <form method="POST" action="/update-cart" style="display:inline;">
+                <input type="hidden" name="product" value="{{ product }}">
+                <input type="hidden" name="action" value="minus">
+                <button>-</button>
+            </form>
+
+            <span class="qty">{{ qty }}</span>
+
+            <form method="POST" action="/update-cart" style="display:inline;">
+                <input type="hidden" name="product" value="{{ product }}">
+                <input type="hidden" name="action" value="plus">
+                <button>+</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+    <hr>
+
+    <!-- COUPON -->
+    <form method="POST" action="/apply-coupon">
+        <input type="text" name="coupon" placeholder="Enter Coupon Code" class="coupon-box">
+        <button type="submit">Apply Coupon</button>
+    </form>
+
+    <hr>
+
+    <!-- PRICE SUMMARY -->
+    <div class="summary-box">
+        <p>Subtotal: ₹{{ subtotal }}</p>
+        <p>GST (18%): ₹{{ gst }}</p>
+        <p>Discount: -₹{{ discount }}</p>
+        <h3>Total Payable: ₹{{ total }}</h3>
+    </div>
+
+    <a href="/checkout">
+        <button class="checkout-btn">Checkout</button>
+    </a>
+
+    <br><br>
+<a href="/">⬅ Back to Home</a>
+
+
+</div>
+
+</body>
+</html>

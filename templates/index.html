@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="cart-icon">
+    <a href="/cart">
+        🛒
+        <span class="cart-badge">{{ cart_count }}</span>
+    </a>
+</div>
+
+
+    <h1>Welcome to Fashion Store, {{ session["user_name"] }}</h1>
+
+
+    <!-- OFFERS SECTION -->
+    <h2>🔥 Offers</h2>
+
+    <div class="offer-container">
+        <div class="offer-card">
+            <img src="{{ url_for('static', filename='images/shoes.jpg') }}">
+            <h3>Shoes - 50% OFF</h3>
+        </div>
+
+        <div class="offer-card">
+            <img src="{{ url_for('static', filename='images/shirt.jpg') }}">
+            <h3>Shirt - 50% OFF</h3>
+        </div>
+
+        <div class="offer-card">
+            <img src="{{ url_for('static', filename='images/pants.jpg') }}">
+            <h3>Pants - 50% OFF</h3>
+        </div>
+
+        <div class="offer-card">
+            <img src="{{ url_for('static', filename='images/watch.jpg') }}">
+            <h3>Watch - 50% OFF</h3>
+        </div>
+    </div>
+
+    <!-- PRODUCTS SECTION -->
+    <h2 id="products">🛍 Products</h2>
+
+
+    <div class="product-container">
+
+        <!-- SHOES -->
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/shoes1.jpg') }}">
+            <h3>Sports Shoes</h3>
+            <p>₹1999</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="shoes1">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/shoes2.jpg') }}">
+            <h3>Casual Shoes</h3>
+            <p>₹1799</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="shoes2">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- SHIRTS -->
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/shirt2.jpg') }}">
+            <h3>Formal Shirt</h3>
+            <p>₹999</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="shirt2">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/shirt3.jpg') }}">
+            <h3>Printed Shirt</h3>
+            <p>₹1099</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="shirt3">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/shirt4.jpg') }}">
+            <h3>Denim Shirt</h3>
+            <p>₹1199</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="shirt4">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- PANTS -->
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/pant2.jpg') }}">
+            <h3>Jeans Pants</h3>
+            <p>₹1399</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="pant2">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/pant3.jpg') }}">
+            <h3>Cotton Pants</h3>
+            <p>₹1299</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="pant3">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/pant4.jpg') }}">
+            <h3>Formal Pants</h3>
+            <p>₹1499</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="pant4">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <!-- WATCHES -->
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/watch1.jpg') }}">
+            <h3>Smart Watch</h3>
+            <p>₹2499</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="watch1">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/watch2.jpg') }}">
+            <h3>Leather Watch</h3>
+            <p>₹2299</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="watch2">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/watch3.jpg') }}">
+            <h3>Classic Watch</h3>
+            <p>₹2199</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="watch3">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="product-card">
+            <img src="{{ url_for('static', filename='images/watch4.jpg') }}">
+            <h3>Digital Watch</h3>
+            <p>₹2099</p>
+            <form method="POST" action="/add-to-cart">
+                <input type="hidden" name="product" value="watch4">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+
+    </div>
+
+    <br>
+    <a href="/logout">Logout</a>
+
+</body>
+</html>

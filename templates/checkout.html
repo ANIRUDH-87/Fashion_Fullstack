@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=200">
+</head>
+
+<body>
+
+<div class="checkout-box">
+
+    <h1>Checkout</h1>
+
+    <h3>Shipping Details</h3>
+
+    <form method="POST">
+
+        <input type="text" placeholder="Full Name" required><br><br>
+        <input type="text" placeholder="Address" required><br><br>
+        <input type="text" placeholder="District" required><br><br>
+        <input type="text" placeholder="Pincode" required><br><br>
+        <input type="text" placeholder="Mobile Number" required><br><br>
+
+        <h3>Payment Method</h3>
+
+        <!-- UPI BUTTON -->
+        <div class="payment-box">
+            <button type="button" class="upi-btn" onclick="toggleUPI()">
+                UPI
+            </button>
+
+            <div id="upi-options" class="upi-options hidden">
+                <label>
+                    <input type="radio" name="payment" value="gpay">
+                    Google Pay
+                </label><br>
+
+                <label>
+                    <input type="radio" name="payment" value="phonepe">
+                    PhonePe
+                </label><br>
+
+                <label>
+                    <input type="radio" name="payment" value="bhim">
+                    BHIM UPI
+                </label>
+            </div>
+        </div>
+
+        <!-- COD OPTION -->
+        <div class="payment-box">
+            <label>
+                <input type="radio" name="payment" value="cod" required>
+                Cash on Delivery
+            </label>
+        </div>
+
+        <br>
+
+        <!-- PLACE ORDER -->
+        <button class="place-order-btn" type="submit">
+            Place Order
+        </button>
+
+    </form>
+
+    <br>
+    <a href="/cart">⬅ Back to Cart</a>
+
+</div>
+
+<!-- SMALL JS -->
+<script>
+function toggleUPI() {
+    document.getElementById("upi-options").classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>
