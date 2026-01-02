@@ -91,6 +91,9 @@ def create_tables():
     conn.commit()
     conn.close()
 
+# ✅ IMPORTANT: CREATE TABLES AT APP LOAD (RENDER FIX)
+create_tables()
+
 # ---------------- HOME ----------------
 @app.route("/")
 def home():
@@ -285,6 +288,6 @@ def admin_orders():
 
 # ---------------- MAIN ----------------
 if __name__ == "__main__":
-    create_tables()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
